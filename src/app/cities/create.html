@@ -1,0 +1,54 @@
+<div class="wrapper wrapper-content animated fadeIn ecommerce">
+    <div class="ibox-content">
+        <form novalidate="novalidate" ng-submit="valid.onSubmit()">
+            <fieldset class="form-horizontal">
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"><span class="red">*</span>City</label>
+                    <div class="col-sm-6">
+                        <input type="text" name="eventName" ng-model="cities.name" placeholder="City" class="form-control " 
+                        ng-trim="true">
+                   <span class="error">{{errorsinp.name}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"><span class="red">*</span>Country</label>
+                    <div class="col-sm-6">
+                            <select class="form-control" ng-model="cities.country">
+                                    <option value="">Select Country</option>
+                                    <option value="US">USA</option>
+                                    <option value="INDIA">INDIA</option>
+                                </select>
+                   <span class="error">{{errorsinp.country}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"><span class="red">*</span>Scraping Url</label>
+                    <div class="col-sm-6">
+                        <input type="text" name="eventName" ng-model="cities.scrapingUrl" placeholder="https://www.yelp.com/search?find_loc=Miami+Beach,+FL&cflt=nightlife&start=0" class="form-control " 
+                        ng-trim="true">
+                   <span class="error">{{errorsinp.scrapingUrl}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"><span class="red">*</span>Scraping Website</label>
+                    <div class="col-sm-6">
+                        <input type="text" name="eventName" ng-model="cities.scrapingWebsite" placeholder="yelp" class="form-control " 
+                        ng-trim="true">
+                   <span class="error">{{errorsinp.scrapingWebsite}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3">
+                    </div>
+                    <div class="col-sm-9">
+                        <button type="submit" class="btn btn-success" ng-click="save(cities)">Submit</button>
+                        <button type="button" class="btn btn-danger" ng-click="cancel();">Cancel</button>
+                    </div>
+                </div>
+    </div>
+
+    </fieldset>
+    </form>
+</div>
+</div>

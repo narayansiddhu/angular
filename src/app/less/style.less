@@ -1,0 +1,141 @@
+/*
+ *
+ *   INSPINIA - Responsive Admin Theme
+ *   version 2.4
+ *
+*/
+
+// Google Fonts
+//@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+// Variables, Mixins
+@import "variables.less";
+@import "mixins.less";
+// INSPINIA Theme Elements
+@import "typography.less";
+@import "navigation.less";
+@import "top_navigation.less";
+@import "buttons.less";
+@import "badgets_labels.less";
+@import "elements.less";
+@import "sidebar.less";
+@import "base.less";
+@import "pages.less";
+@import "chat.less";
+@import "metismenu.less";
+@import "spinners.less";
+// Landing page styles
+@import "landing.less";
+// RTL Support
+@import "rtl.less";
+// For demo only - config box style
+@import "theme-config.less";
+// INSPINIA Skins
+@import "skins.less";
+@import "md-skin.less";
+// Media query style
+@import "media.less";
+// Custom style
+// Your custom style to override base style
+@import "custom.less";
+// Clear layout on print mode
+@media print {
+    nav.navbar-static-side {
+        display: none;
+    }
+    #page-wrapper {
+        margin: 0;
+    }
+}
+
+.button-style {
+    width: 45%;
+    float: left;
+    margin: 0px 13px;
+}
+
+.cross {
+    position: relative;
+    margin-left: 8px;
+}
+
+.close {
+    position: absolute;
+    top: -11px;
+    right: -7px;
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.imgWidth {
+    width: 100%;
+    float: left;
+    text-align: center;
+    padding-top: 2%;
+}
+
+.productBox {
+    width: 100%;
+    float: left;
+}
+
+.nav-tabs > li.active {
+    background: transparent;
+    color: #000;
+}
+
+.nav-tabs > li.active > a {
+    color: #000;
+}
+
+//code for map modal papup css code
+.modal-dialog {
+    width: 96%;
+    margin: 2%;
+    height: 92%!important;
+}
+
+.modal-body {
+    padding: 10px;
+    height: 85%!important;
+    overflow: visible;
+}
+
+.modal-content {
+    height: 100%!important;
+}
+
+.modal-content .ng-scope {
+    height: 100%!important;
+}
+.modal-content .twodays .ng-scope{
+    height: auto !important; 
+}
+
+ng-map#billingmap {
+    height: 100%!important;
+}
+
+.pac-container.pac-logo {
+    width: 937px;
+    left: 2px!important;
+    top: 34px!important;
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.catList{
+    
+}
+
+.modal-backdrop.in {
+    opacity: 1;
+}
+button.active{  
+  background:#000000;
+  color:#ffffff;
+  border: none;
+  font-weight:bold; 
+}

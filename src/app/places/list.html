@@ -1,0 +1,173 @@
+<div class="wrapper wrapper-content  animated">
+    <div class="ibox-content">
+            
+        <form novalidate="novalidate" ng-submit="valid.onSubmit()">
+            <fieldset class="form-horizontal">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="col-md-5 control-label">
+                                <span class="red">*</span>Country</label>
+                            <div class="col-md-7">
+                                <select class="form-control" ng-model="country" ng-change="countryChange(country)">
+                                    <option value="0">Select Country</option>
+                                    <option value="US">US</option>
+                                    <option value="INDIA">INDIA</option>
+                                </select>
+                                <span class="error">{{errorsinp.country}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">
+                                <span class="red">*</span>City</label>
+                            <div class="col-sm-8">
+
+                                <!-- ng-options="blocks.block as  blocks.block for blocks in blockslist" -->
+                                <select class="form-control" ng-model="city">
+                                    <option value="0">Select City</option>
+                                    <option ng-repeat="city in cities" ng-value="city.id">
+                                        {{city.name}}
+                                    </option>
+                                </select>
+                                <span class="error">{{notfounError}}</span>
+                                <span class="error">{{errorsinp.city}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <button type="submit" class="btn btn-success" ng-click="cityChange(city)">Submit</button>
+                        <button type="button" class="btn btn-danger" ng-click="cancel();">Cancel</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <div class="row">
+                        <div class="pull-right" style="margin-right: 2%;">
+                            <button class="btn btn-info" type="button" ui-sref="places.create">Create</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="tab-pane active" id="tab_a">
+                        <button class="btn btn-link pull-right" ng-click="exportToExcel('#tableToExport')">
+                            <span class="glyphicon glyphicon-share"></span>
+                            Export to Excel
+                        </button>
+                        <br>
+
+                    </div>
+                    <table datatable="ng" dt-options="dtOptions" id="examples" class="table table-striped table-bordered table-hover dataTables-example">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Name</th>
+                                <th class="text-center">Address </th>
+                                <th class="text-center">Zipcode</th>
+                                <!-- <th class="text-center">Categories</th> -->
+                                <!-- <th class="text-center">Location Lat Value</th>
+                                    <th class="text-center">Location Lang Value</th>
+                                    <th class="text-center">Poly Cordinates Lat Lang Values</th> -->
+                                <!-- <th class="text-center">City Id</th> -->
+                                <th class="text-center">Favourite Count</th>
+                                <th class="text-center">Place Type</th>
+                                <!-- <th class="text-center"  width="100px">Busy Hours</th> -->
+                                <th class="text-center">Price Range</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="place in places">
+                                <td class="text-center">{{place.name}} </td>
+                                <td class="text-center">{{place.address}}</td>
+                                <td class="text-center">{{place.zipcode}}</td>
+                                <!-- <td class="text-center">{{place.location.lat}}</td>
+                                    <td class="text-center">{{place.location.lng}}</td> -->
+                                <!-- <td class="text-center" ><span ng-repeat="x1 in place.polyCoordinates">Lat: {{x1.lat}}, lng: {{x1.lng}},</span></td> -->
+                                <td class="text-center">{{place.favouriteCount}} </td>
+                                <td class="text-center">{{place.placeType}}</td>
+                                
+                                <td class="text-center">{{place.priceRange}}</td>
+                                <td class="text-center">
+                                    <button type="button" ng-click="edit(place.id)" class="btn btn-primary btn-xs">Edit</button>
+                                    <button type="button" ng-click="delete(place.id)" ng-confirm-click="Do you want to delete place : {{place.name}}" class="btn btn-danger btn-xs">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table ng-hide="true" id="tableToExport" class="table table-striped table-bordered table-hover dataTables-example">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Actions</th>
+                                <th class="text-center">Name</th>
+                                <th class="text-center">Address </th>
+                                <th class="text-center">Zipcode</th>
+                                
+                                <!-- <th class="text-center">Location Lat Value</th>
+                                                <th class="text-center">Location Lang Value</th>
+                                                <th class="text-center">Poly Cordinates Lat Lang Values</th> -->
+                                <!-- <th class="text-center">City Id</th> -->
+                                <th class="text-center">Favourite Count</th>
+                                <th class="text-center">Place Type</th>
+                                
+                                <th class="text-center">Price Range</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="place in places">
+                                <td class="text-center">{{place.name}} </td>
+                                <td class="text-center">{{place.address}}</td>
+                                <td class="text-center">{{place.zipcode}}</td>
+                                
+                                <!-- <td class="text-center">{{place.location.lat}}</td>
+                                                <td class="text-center">{{place.location.lng}}</td> -->
+                                <!-- <td class="text-center" ><span ng-repeat="x1 in place.polyCoordinates">Lat: {{x1.lat}}, lng: {{x1.lng}},</span></td> -->
+                                <td class="text-center">{{place.favouriteCount}} </td>
+                                <td class="text-center">{{place.placeType}}</td>
+                                
+                                <td class="text-center">{{place.priceRange}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loader" ng-show="loading"></div>
+<style>
+    div.dataTables_wrapper {
+        width: 100%;
+        margin: 0 auto;
+        overflow: scroll;
+    }
+    .loader {
+        border: 16px solid #f3f3f3; /* Light grey */
+        border-top: 16px solid #6cc10e; /* Blue */
+        border-radius: 100%; 
+        width: 100px;
+        height: 100px;
+        animation: spin 500ms linear infinite;
+        position:fixed;
+        left:0;
+        right:0;
+        top:0;
+        bottom:0;
+        margin:auto;
+    }
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+</style>

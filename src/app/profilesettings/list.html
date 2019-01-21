@@ -1,0 +1,68 @@
+<div class="wrapper wrapper-content  animated">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <div class="row">
+                         <div class="pull-right" style="margin-right: 2%;">
+                            <button class="btn btn-info" type="button" ui-sref="profilesettings.create">Create</button>
+                        </div> 
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="tab-pane active" id="tab_a">
+                        <button class="btn btn-link pull-right" ng-click="exportToExcel('#tableToExport')">
+                            <span class="glyphicon glyphicon-share"></span>
+                            Export to Excel
+                        </button>
+                        <br>
+
+                    </div>
+                    <table datatable="ng" dt-options="dtOptions" class="table table-striped table-bordered table-hover dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Block</th>
+                                <th>Project Name </th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="blocks in block">
+                                <td>{{blocks.block}} </td>
+                                <td>{{blocks.projectData.projectName}}</td>
+                                <td ng-if="blocks.status==1001">active</td>
+                                <td ng-if="blocks.status==1002">inactive</td>
+                                
+                                <td>
+                                    <button type="button" ng-click="edit(blocks.id)" class="btn btn-primary btn-xs">Edit</button>
+                                    <button type="button" ng-click="delete(blocks.id)" ng-confirm-click="Do you want to delete Block : {{blocks.block}}" class="btn btn-danger btn-xs">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                  
+                        <table ng-hide="true" id="tableToExport" class="table table-striped table-bordered table-hover dataTables-example">
+                                <thead>
+                                        <tr>
+                                            <th>Project </th>
+                                            <th>Block</th>
+                                            <th>Status</th>
+                                            <!-- <th>Actions</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="blocks in block">
+                                            <td>{{blocks.projectId}}</td>
+                                            <td>{{blocks.block}} </td>
+                                            <td ng-if="blocks.status==1001">active</td>
+                                            <td ng-if="blocks.status==1002">inactive</td>
+                                        </tr>
+                                    </tbody>
+                        </table>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

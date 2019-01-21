@@ -1,0 +1,108 @@
+<div class="wrapper wrapper-content animated fadeIn ecommerce">
+    <div class="ibox-content">
+        <form novalidate="novalidate" ng-submit="valid.onSubmit()">
+            <fieldset class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span class="red">*</span>Name</label>
+                    <div class="col-sm-4">
+                        <input type="text" name="eventName" ng-model="users.name" placeholder="Name" class="form-control " ng-trim="true">
+                        <span class="error">{{errorsinp.name}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span class="red">*</span>Gender:</label>
+                    <div class="col-sm-4">
+                        <label class="checkbox-inline" ng-repeat="person in genders">
+                            <input type="radio" ng-model="users.sex" id=inlineCheckbox1 name="name" ng-change="genderChange(person)" value="{{person}}"
+                                required="" /> {{person}} </label>
+                        <span class="text-danger ng-binding">{{errorsinp.sex}}</span>
+                    </div>
+                </div>
+                <!-- <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        <span class="red">*</span>Gender</label>
+                    <div class="col-sm-3">
+                        <input type="text" name="eventName" ng-model="users.sex" placeholder="Gender" class="form-control " ng-trim="true">
+                        <span class="error">{{errorsinp.sex}}</span>
+                    </div>
+                </div> -->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span class="red">*</span>Race</label>
+                    <div class="col-sm-4">
+                        <input type="text" name="eventName" ng-model="users.race" placeholder="Race" class="form-control " ng-trim="true">
+                        <span class="error">{{errorsinp.race}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span class="red">*</span>Device Id</label>
+                    <div class="col-sm-4">
+                        <input type="text" name="eventName" ng-model="users.deviceId" placeholder="Device Id" class="form-control " ng-trim="true">
+                        <span class="error">{{errorsinp.deviceId}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span class="red">*</span>Location Latitude Value</label>
+                    <div class="col-sm-4">
+                        <input type="text" name="location" ng-model="users.location.lat" placeholder="Latitude Value" class="form-control "  ng-trim="true">
+                        <span class="error">{{errorsinp.locationlat}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">
+                        <span class="red">*</span>Location Longitude Value</label>
+                    <div class="col-sm-4">
+                        <input type="text" name="location" ng-model="users.location.lng" placeholder="Longitude Value" class="form-control " ng-trim="true" >
+                        <span class="error">{{errorsinp.langvalue}}</span>
+                    </div>
+                </div>
+                
+                <div class="form-group" >
+                    <label class="col-sm-3 control-label">
+                        <span class="red">*</span>Favourites</label>
+                    <div class="col-sm-6">
+                        <div class="" >
+                            <ul>
+                                <li ng-repeat="seletedplace in allfav" style="padding:10px 0px;">{{seletedplace.name}}</li>
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <select class="form-control " ng-model="favourites">
+                                    <option value="">Select</option>
+                                    <option ng-repeat="place in allplaces" value="{{place}}">{{place.name}}</option>
+                                </select>
+                                <span class="error">{{errorsinp.favourites}}</span>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-success" ng-click="addfav(favourites)">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <ng-map center="Chicago" zoom="10" on-click="getpos($event)">
+                        <marker position="{{latlng}}" title="Select Location!" on-dragend="getpos($event)" animation="Animation.BOUNCE" animation="DROP"
+                            draggable="true"></marker>
+                    </ng-map>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3">
+                    </div>
+                    <div class="col-sm-9">
+                        <button type="submit" class="btn btn-success" ng-click="save(users)">Submit</button>
+                        <button type="button" class="btn btn-danger" ng-click="cancel();">Cancel</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

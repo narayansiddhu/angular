@@ -1,0 +1,8 @@
+*.DS_Store
+.editorconfig
+.jshintrc
+.tmp
+dist
+node_modules
+.npm
+bower_components

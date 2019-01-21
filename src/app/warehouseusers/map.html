@@ -1,0 +1,31 @@
+<div>
+    <div class="modal-header">
+        <div class="form-group">
+            <div class="col-sm-12 testnew987" style="padding:0px;">
+                <input type="text" class="form-control" googleplace ng-model="searchArea" placeholder="Search Area on Map">
+            </div>
+        </div>
+    </div>
+    <div class="modal-body">
+        <ng-map style="height:100%" id="regionMap" zoom="11" class="caretecustomer" center="{{mapCenter}}" on-click="placeMarker()">
+            <marker position="{{mapCenter}}" ng-if="markerReady" label="{{markerOption.label}}"></marker>
+            <drawing-manager on-overlaycomplete="onMapOverlayCompleted()" drawing-control-options={{drawing_control_options}} drawingControl="true" drawingMode={{drawingMode}} PolygonOptions="{'editable':true, 'draggable':true}">
+                <shape name="polygon" editable="true" ng-if="region.coordinates" paths="{{region.coordinates | geoPointToArray}}" stroke-color="#BD8A23" stroke-opacity="0.8" stroke-weight="2" fill-color="#BD8A23" fill-opacity="0.35" draggable="true" clickable="true" on-insert_at="insertAt()" on-dragend="dragEnd()"></shape>
+            </drawing-manager>
+            <shape ng-repeat="city in cities" name="polygon" paths="{{city.coordinates | geoPointToArray}}" stroke-color="#202020" stroke-opacity="0.8" stroke-weight="2" fill-color="#202020" fill-opacity="0.35">
+            </shape>
+            <custom-marker ng-repeat="city in getCitiesByCatId" position="{{city.coordinates[0]| geoPoint}}">
+                <div class="zone-title"><b>{{city.city}}</b></div> 
+            </custom-marker>   
+        </ng-map>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-danger" ng-click="cancle()">Cancel</button> 
+        <button class="btn btn-primary" type="button" ng-disabled="showOk" ng-click="ok()">OK</button>
+    </div> 
+</div>
+<style type="text/css">
+ng-map#regionMap {
+    height: 100%!important;
+}
+</style>

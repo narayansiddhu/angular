@@ -1,0 +1,195 @@
+<style type="text/css">
+.font-size{
+    font-size: 35px;
+}
+</style>
+<div class="wrapper wrapper-content animated fadeIn ngCloak">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <!-- <span class="label label-success float-right">Monthly</span> -->
+                    <h5>Projects</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="font-size">
+                                <i class="fa fa-building"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <h1 class="no-margins">{{totalProjectsCount}}</h1>
+                            <!-- <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div> -->
+                            <small>Total Projects</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <!-- <span class="label label-success float-right">Monthly</span> -->
+                    <h5>Blocks</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="font-size">
+                                <i class="fa fa-bitbucket"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <h1 class="no-margins">{{totalBlocksCount}}</h1>
+                            <!-- <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div> -->
+                            <small>Total Blocks</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="col-lg-6">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <!-- <span class="label label-success float-right">Monthly</span> -->
+                    <h5>Users</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="font-size">
+                                <i class="fa fa-user"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <h1 class="no-margins">{{totalUsersCount}}</h1>
+                            <!-- <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div> -->
+                            <small>Total Users</small>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="col-lg-6">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <!-- <span class="label label-success float-right">Monthly</span> -->
+                    <h5>Flats</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="font-size">
+                                <i class="fa fa-codepen"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <h1 class="no-margins">{{totalflats}}</h1>
+                            <!-- <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div> -->
+                            <small>Total Flats</small>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+   <!--  <div class="row">
+        <div class="col-md-3">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    
+                    <h5>Projects</h5>
+                </div>
+                <div class="ibox-content">
+                    <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels"></canvas> 
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    
+                    <h5>Chats</h5>
+                </div>
+                <div class="ibox-content">
+                    <canvas id="bar" class="chart chart-bar flot-chart" chart-data="data1" chart-labels="labels1" chart-series="series1" style='height:200px;' ></canvas>
+                </div>
+            </div>
+        </div>   
+        <div class="col-md-3">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    
+                    <h5>Users</h5>
+                </div>
+                <div class="ibox-content">
+                    <canvas id="radar" class="chart chart-radar" chart-data="datar" chart-labels="labelsr"></canvas> 
+                </div>
+            </div>
+        </div> 
+    </div>
+
+    <br/> -->
+    <!-- <div class="row">
+        <div class="col-lg-4">
+            <div class="widget navy-bg p-lg text-center">
+                <div class="m-b-md">
+                    <h3 class="font-bold">Total Brags</h3>
+                    <br>
+                    <h2 class="font-bold">{{totalCount.result.brags}}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="widget navy-bg p-lg text-center">
+                <div class="m-b-md">
+                    <h3 class="font-bold">Reedem Count</h3>
+                    <br>
+                    <h2 class="font-bold">{{totalCount.result.redeemCount}}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="widget navy-bg p-lg text-center">
+                <div class="m-b-md">
+                    <h3 class="font-bold">View Count</h3>
+                    <br>
+                    <h2 class="font-bold">{{totalCount.result.viewCount}}</h2>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- <div class="row">
+     <div class="col-lg-4">
+           <div class="widget navy-bg p-lg text-center">
+                <div class="m-b-md">
+                    <h3 class="font-bold">Share Count</h3>
+                    <br>
+                    <h2 class="font-bold">{{totalCount.result.shareCount}}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="widget navy-bg p-lg text-center">
+                <div class="m-b-md">
+                    <h3 class="font-bold">Favourite Count</h3>
+                    <br>
+                    <h2 class="font-bold">{{totalCount.result.favouriteCount}}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            
+        </div>
+    </div> -->
+</div>

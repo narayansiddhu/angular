@@ -1,0 +1,44 @@
+<div class="middle-box text-center loginscreen animated fadeInDown">
+        <img src="assets/images/applogo.png" alt="Scouter Logo" width="150" >
+        <h2 style="color:#000; font-weight: bold;">Scouter Login</h1>
+    <div class="form-container float:right;">
+     
+        <form class="m-t" role="form" ng-submit="onSubmit()">
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                    <input type="text" ng-model="login.username" class="form-control1" placeholder="User Name" required="true">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                    <input type="password" ng-model="login.password" class="form-control1" placeholder="Password" required="true">
+                    <!--   <span class="text-danger ng-binding">{{errorsinp.password}}</span>  -->
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+            <span class="text-white ng-binding">{{errorLogin}}</span>
+        </form>
+    </div>
+</div>
+<style type="text/css">
+
+.form-control1, .single-line{
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.input-group-addon{
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(255, 255, 255, 1);
+
+}
+.btn-primary {
+    background-color: rgb(69, 120, 224) !important;
+}
+    html,
+    body {
+        height: 100%!important;
+    }
+</style>

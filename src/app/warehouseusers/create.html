@@ -1,0 +1,71 @@
+<div class="wrapper wrapper-content animated fadeIn ecommerce">
+    <div class="ibox-content">
+        <form name="myRegion">
+            <fieldset class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"><span class="red">*</span>Mobile No</label>
+                    <div class="col-sm-10">
+                        <input type="number" name="mobileno" ng-model="wareHouseModel.username" ng-pattern="regEx" placeholder="Ex : 9855514371" class="form-control ng-pristine ng-valid" ng-trim="true">
+                        <span ng-show="myRegion.mobileno.$error.pattern" style="color:red">Mobile number should allow 10 numbers.</span>
+                        <span class="text-danger ng-binding">{{errorsinp.username}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"><span class="red">*</span>Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" name="password" ng-model="wareHouseModel.password" placeholder="Enter Password" />
+                        <span class="error">{{errorsinp.password}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"><span class="red">*</span>Full Name</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="First Name" ng-model="wareHouseModel.firstName" placeholder="Enter First Name" />
+                        <span class="error">{{errorsinp.firstName}}</span>
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="Last Name" ng-model="wareHouseModel.lastName" placeholder="Enter Last Name" />
+                        <span class="error">{{errorsinp.lastName}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"><span class="red">*</span>Gender:</label>
+                    <div class="col-sm-10">
+                        <label class="checkbox-inline" ng-repeat="person in genders">
+                            <input type="radio" ng-model="wareHouseModel.gender" id=inlineCheckbox1 name="name" value="{{person}}" required="" /> {{person}} </label>
+                        <span class="text-danger ng-binding">{{errorsinp.gender}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"><span class="red">*</span>Alternate contact</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" name="alternate_contact" ng-model="wareHouseModel.alternate_contact" placeholder="Enter Alternate Contact" />
+                        <span class="error">{{errorsinp.alternate_contact}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"><span class="red">*</span>dob</label>
+                    <div class="col-sm-3">
+                        <md-datepicker ng-model="wareHouseModel.dob"></md-datepicker>   
+                        <span class="text-danger ng-binding" style="width: 100%;float: left;">{{errorsinp.dob}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"><span class="red">*</span>Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" name="email" ng-model="wareHouseModel.email" placeholder="Enter Email" />
+                        <span class="error">{{errorsinp.email}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-success" ng-click="save(wareHouseModel)">Submit</button>
+                        <button type="button" class="btn btn-danger" ng-click="cancel();">Cancel</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

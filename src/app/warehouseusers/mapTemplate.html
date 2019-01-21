@@ -1,0 +1,18 @@
+<div>
+    <div class="modal-header">
+        <div class="form-group">
+            <div class="col-sm-12 testnew987" style="padding:0px;">
+                <input type="text" class="form-control" googleplace ng-model="searchArea" placeholder="Please enter either lat lng or address" />
+            </div>
+        </div>
+    </div>
+    <div class="modal-body">
+        <ng-map style="height:100%" zoom="{{zoom}}" class="caretecustomer" id="billingmap" center="{{mapCenter}}" on-click="doclick($event)">
+           <marker position="{{searchArea}}" icon="http://maps.google.com/mapfiles/ms/icons/red-dot.png" draggable="true" on-dragend="doSth()"> </marker>
+        </ng-map>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-danger" ng-click="cancle()">Cancel</button>
+        <button class="btn btn-primary" type="button" ng-disabled="showBtn" ng-click="ok()">OK</button>
+    </div>
+</div>

@@ -1,0 +1,367 @@
+<style></style>
+<div class="wrapper wrapper-content animated fadeIn ecommerce">
+    <div class="ibox-content">
+        <form novalidate="novalidate" ng-submit="valid.onSubmit()">
+            <fieldset class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        <span class="red">*</span>Name</label>
+                    <div class="col-sm-3">
+                        <input type="text" name="eventName" ng-model="list.name" placeholder="Name" class="form-control " ng-trim="true">
+                        <span class="error">{{errorsinp.name}}</span>
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="submit" class="btn btn-success" ng-click="getbusyhours(list.name, list.address)">Get Busy Hours</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        <span class="red">*</span>Place Type</label>
+                    <div class="col-sm-3">
+                        <select class="form-control" ng-model="list.placeType">
+                            <option value="">Select Type</option>
+                            <option value="Pub">Pub</option>
+                            <option value="Club">Club</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        <span class="red">*</span>Address</label>
+                    <div class="col-sm-3">
+                        <input type="text" name="eventName" ng-model="list.address" placeholder="Address" class="form-control " ng-trim="true">
+                        <span class="error">{{errorsinp.address}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        <span class="red">*</span>Zipcode</label>
+                    <div class="col-sm-3">
+                        <input type="text" name="eventName" ng-model="list.zipcode" placeholder="Zipcode" class="form-control " ng-trim="true">
+                        <span class="error">{{errorsinp.zipcode}}</span>
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="submit" class="btn btn-success" ng-click="getzipdata(list.zipcode)">Get Zipcode Data</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        <span class="red">*</span>Latitude</label>
+                    <div class="col-sm-3">
+                        <input type="text" name="eventName" ng-model="list.location.lat" placeholder="Latitude" class="form-control " ng-value="latlng[0]"
+                            ng-trim="true">
+                        <span class="error">{{errorsinp.lat}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        <span class="red">*</span>Longitude</label>
+                    <div class="col-sm-3">
+                        <input type="text" name="eventName" ng-model="list.location.lng" placeholder="Longitude" class="form-control " ng-value="latlng[1]"
+                            ng-trim="true">
+                        <span class="error">{{errorsinp.lng}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        <span class="red">*</span>Categories</label>
+                    <div class="col-sm-3">
+                        <input type="text" name="eventName" ng-model="list.categories" placeholder="Categories" class="form-control " ng-trim="true"
+                            ng-value="latlng[1]">
+                        <span class="error">{{errorsinp.categories}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        <span class="red">*</span>Poly Coordinates</label>
+                    <div class="col-md-6">
+                        <div class="row" ng-repeat="polly in list.polyCoordinates">
+                            <div class="col-md-6">
+                                <label class="col-md-2 control-label">
+                                    Lat</label>
+                                <div class="col-md-8">
+                                    <input type="text" ng-model="polly.lat" class="form-control " />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="col-md-2 control-label">
+                                    Lang</label>
+                                <div class="col-md-8">
+                                    <input type="text" ng-model="polly.lng" class="form-control " />
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </br>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        <span class="red">*</span>Country</label>
+                    <div class="col-md-3">
+                        <select class="form-control" ng-model="country" ng-change="countryChange(country)">
+                            <option value="0">Select Country</option>
+                            <option value="US">US</option>
+                            <option value="INDIA">INDIA</option>
+                        </select>
+                        <span class="error">{{errorsinp.country}}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        <span class="red">*</span>City</label>
+                    <div class="col-sm-3">
+                        <select class="form-control" ng-model="list.cityId">
+                            <option value="">Select City</option>
+                            <option ng-repeat="city in cities" value="{{city.id}}">
+                                {{city.name}}
+                            </option>
+                        </select>
+                        <!-- <span class="error">{{errorsinp.cityId}}</span> -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        <span class="red">*</span>Favourite Count</label>
+                    <div class="col-sm-3">
+                        <input type="text" name="eventName" ng-model="list.favouriteCount" placeholder="Favourite Count" class="form-control " ng-trim="true">
+                        <span class="error">{{errorsinp.favouriteCount}}</span>
+                    </div>
+                    
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        Race
+                    </label>
+                    <div class="col-sm-8">
+                        <form class="form-inline">
+                            <div class="form-group row">
+                                <div class="col-md-2">
+                                    <label class="text-center">White</label>
+                                    <input class="text-center form-control" ng-model="list.race[0].count" type="number" />
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="text-center">Black</label>
+                                        <input class="text-center form-control" ng-model="list.race[1].count" type="number" />
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="text-center">Asian</label>
+                                        <input class="text-center form-control" ng-model="list.race[2].count" type="number" />
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="text-center">Latino</label>
+                                        <input class="text-center form-control" ng-model="list.race[3].count" type="number" />
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="text-center">Indian</label>
+                                        <input class="text-center form-control" ng-model="list.race[4].count" type="number"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        Gender
+                    </label>
+                    <div class="col-sm-8">
+                        <form class="form-inline">
+                            <div class="form-group row">
+                                <div class="col-md-4">
+                                    <label class="text-center">Male</label><br/>
+                                    <input class="text-center form-control" ng-model="list.gender[0].count" type="number" />
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="text-center">Female</label>
+                                        <input class="text-center form-control" ng-model="list.gender[1].count" type="number" />
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="text-center">Others</label>
+                                        <input class="text-center form-control" ng-model="list.gender[2].count" type="number" />
+                                </div>
+                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        Interest
+                    </label>
+                    <div class="col-sm-8">
+                        <form class="form-inline">
+                            <div class="form-group row">
+                                    
+                                <div class="col-md-3">
+                                    <label class="text-center">Lesbian</label><br/>
+                                    <input class="text-center form-control" ng-model="list.interest[0].count" type="number" />
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="text-center">Gay</label><br/>
+                                    <input class="text-center form-control" ng-model="list.interest[1].count" type="number" />
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="text-center">Straight</label>
+                                        <input class="text-center form-control" ng-model="list.interest[2].count" type="number" />
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="text-center">Bisexual</label>
+                                        <input class="text-center form-control" ng-model="list.interest[3].count" type="number" />
+                                </div>
+                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        Busy Hours</label>
+                    <div class="col-sm-8">
+                        <!--panel start here-->
+                        <!-- <div class="panel-group" id="accordion" class="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default" ng-repeat="day in list.busyHours">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href=".{{day.day}}" aria-expanded="true" aria-controls="collapse{{$index+1}}">
+                                            <i class="more-less glyphicon glyphicon-plus"></i>
+                                            {{day.day}}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div class="{{day.day}}" id="collapse{{$index+1}}" class="collapse" role="tabpanel" aria-labelledby="collapse{{$index+1}}">
+                                    <div class="panel-body">
+                                        <form>
+                                            <div class="form-group row">
+                                                <div class="col-md-2" ng-repeat="(i,hr) in day.hours track by $index">
+                                                    <label for="monday1" class="text-center">H - {{$index+1}}
+                                                        <input class="form-control text-center" id="monday1" ng-model="day.hours[i]" type="text" value="{{hr}}">
+                                                    </label>
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- panel-group -->
+
+                        <div class="md-accordion" ng-repeat="data in list.busyHours" style="margin-bottom:1px;">
+                            <md-toolbar ng-init="data.expanded = false" ng-click="collapseAll(data)">
+                                <div class="md-toolbar-tools">
+                                    <h4>
+                                        <span>{{data.day}}</span>
+                                    </h4>
+                                    <span flex=""></span>
+                                    <span ng-class="{expandCollapse:true, active:data.expanded}"></span>
+                                </div>
+                            </md-toolbar>
+                            <div ng-class="{dataContent:true, activeContent:data.expanded}">{{hr}}
+                                <form class="form-inline">
+                                    <div class="form-group row">
+                                        <div class="col-md-2" ng-repeat="(i,hr) in data.hours track by $index">
+                                            <label class="text-center">H - {{$index+1}}
+                                                <input class="text-center" ng-model="data.hours[i]" type="number"  class="form-control"/>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                        </div>
+                        <!-- </br> -->
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                            </div>
+                            <div class="col-sm-9">
+                                <button type="submit" class="btn btn-success" ng-click="save()">Submit</button>
+                                <button type="button" class="btn btn-danger" ng-click="cancel();">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+            </fieldset>
+        </form>
+        </div>
+    </div>
+    <style>
+        .md-accordion .expandCollapse {
+            width: 30px;
+            height: 30px;
+            position: relative;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #fff;
+            display: block;
+            margin-top: -2px;
+            margin-left: -2px;
+            overflow: hidden;
+        }
+
+        .md-accordion .expandCollapse:active {
+            border: 0px;
+        }
+
+        .md-accordion .expandCollapse:before,
+        .md-accordion .expandCollapse:after {
+            width: 30px;
+            height: 30px;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            line-height: 32px;
+            text-align: center;
+            -webkit-transition: .3s all ease-out;
+            transition: .3s all ease-out;
+        }
+
+        .md-accordion .expandCollapse:before {
+            opacity: 1;
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+            content: "|";
+            margin-top: -3px;
+        }
+
+        .md-accordion .expandCollapse:after {
+            opacity: 1;
+            -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+            content: "|";
+            margin-left: -3px;
+        }
+
+        .md-accordion .active:before {
+            opacity: 1;
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+            margin-left: 3px;
+            margin-top: 0px;
+        }
+
+        .md-accordion .dataContent {
+            background: #F2F2F2;
+            height: 0px;
+            overflow: hidden;
+            -webkit-transition: .3s all ease-out;
+            transition: .3s all ease-out;
+        }
+
+        .md-accordion .activeContent {
+            height: auto;
+            padding: 20px;
+            display: block;
+        }
+
+        .md-accordion md-toolbar {
+            cursor: pointer;
+            border-bottom: 4px solid #00bcd4;
+        }
+
+        md-toolbar:not(.md-menu-toolbar) {
+            background-color: rgba(66, 123, 224, 0.92);
+            color: rgba(255, 255, 255, 0.87);
+        }
+    </style>
